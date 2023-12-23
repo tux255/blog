@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :blog_posts do
-    delete :cover_image
+    resource :cover_image, only: [:destroy]
   end
 
   # This ↓ replaced by this ↑ resources method.
