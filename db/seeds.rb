@@ -12,14 +12,14 @@ user.update!(
   password_confirmation: "aqwe123456"
 )
 
-5.times do |a|
-  BlogPost.find_or_insert(title: "Blog post #{a}", content: 'Some content here', published_at: 1.week.from_now )
-end
+# 5.times do |a|
+#   BlogPost.where(title: "Blog post #{a}", content: 'Some content here', published_at: 1.week.from_now ).first_or_create
+# end
 
-80.times do |a|
-  BlogPost.find_or_insert(title: "Blog post #{a}", content: 'Some content here', published_at: 1.day.ago )
-end
+# 80.times do |a|
+#   BlogPost.where(title: "Blog post #{a}", content: 'Some content here', published_at: 1.day.ago ).first_or_create
+# end
 
-5.times do |a|
-  BlogPost.find_or_insert(title: "Blog post #{a}", content: 'Some content here', published_at: nil )
-end
+# 5.times do |a|
+#   BlogPost.where(title: "Blog post #{a}", content: 'Some content here', published_at: nil ).first_or_create
+# end

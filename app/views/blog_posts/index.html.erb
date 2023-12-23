@@ -1,14 +1,22 @@
 <h1>My Blog</h1>
 
 <% @blog_posts.each do |blog_post| %>
-  <div>
-    <h2><%= link_to blog_post.title, blog_post %></h2>
+  <div class="block rounded-lg px-3 py-1 mb-5 text-sm text-gray-500 font-semibold bg-gray-100 shadow-md hover:bg-gray-200">
+    <div class="grid grid-cols-2 gap-1">
+      <img src="" />
+      <%= image_tag blog_post.cover_image if blog_post.cover_image.present? %>
+      <h2 class="my-2 col-span-4">
+        <%= link_to blog_post.title, blog_post %>
+      </h2>
+      <div class="my-2">
+        <% if blog_post.draft? %>
+          <div class="py-1 rounded bg-gray-200 text-center">Draft</div>
+        <% elsif blog_post.scheduled? %>
+          <div class="py-1 rounded bg-blue-100 text-center">Scheduled</div>
+        <% end %>
+      </div>
+    </div>
     <%= blog_post.content %>
-    <% if blog_post.draft? %>
-      <div class="py-1 rounded bg-gray-100">Draft</div>
-    <% elsif blog_post.scheduled? %>
-      <div class="py-1 rounded bg-blue-100">Scheduled</div>
-    <% end %>
   </div>
 <% end %>
 
